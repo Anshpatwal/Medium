@@ -2,11 +2,11 @@ import { Hono } from 'hono'
 import { sign } from 'hono/jwt'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
-// @ts-ignore 
-import {signupSchema} from " @anshpatwal/medium-common"
+
 
 
 export const userRouter = new Hono()
+
 
 userRouter.post("/signup", async (c) => {
     console.log("Signup route hit");
@@ -19,7 +19,6 @@ userRouter.post("/signup", async (c) => {
 
     try {
         const body = await c.req.json()
-        const {sucess} =signupSchema.safeParse(body)
         const user = await prisma.user.create({
             data: {
                 name: body.name,

@@ -1,8 +1,8 @@
 import { Hono } from 'hono'
-import { decode, jwt, sign, verify } from 'hono/jwt'
+import { verify } from 'hono/jwt'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
-import { auth } from 'hono/utils/basic-auth'
+
 
 
 export const blogRouter = new Hono()
@@ -112,7 +112,6 @@ blogRouter.put("/", async (c) => {
 
 
 blogRouter.get("/bulk", async (c) => {
-    const body = await c.req.json()
     const prisma = new PrismaClient({
         datasources: {
             //@ts-ignore
@@ -122,10 +121,16 @@ blogRouter.get("/bulk", async (c) => {
 
     try {
         const blog = await prisma.post.findMany({
-            where: {
-                //@ts-ignore
-                id: body.id
-            },
+            select: {
+                title: true,
+                description: true,
+                id: true,
+                author: {
+                    select: {
+                        name: true
+                    }
+                }
+            }
         })
         return c.json({
             blog
@@ -141,7 +146,6 @@ blogRouter.get("/bulk", async (c) => {
 
 
 blogRouter.get("/:id", async (c) => {
-    const body = await c.req.json()
     const id = c.req.param("id")
     const prisma = new PrismaClient({
         datasources: {

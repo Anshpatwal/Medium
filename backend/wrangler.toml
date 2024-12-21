@@ -5,8 +5,8 @@ compatibility_date = "2024-12-15"
 # compatibility_flags = [ "nodejs_compat" ]
 
  [vars]
-DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMTgzYjkwNjMtOTIxZC00NmYyLWE2OGMtZDc3Nzk0YWIwYTY5IiwidGVuYW50X2lkIjoiYWU3M2ZiOGRjZDllMGI2NGI5NDkwNTIwYzczZjFiNzY3YjA0OTc5YmMyMDBiNzJmMDk2ZjUzMzg4NTI2Y2Y4YyIsImludGVybmFsX3NlY3JldCI6IjUyMzE3YzkzLTA1ODMtNGJjNi1iMWM3LTdlYzFiMmYxMzcxMCJ9.EUV7UOJcUNUyWZDkMSvnTMn6IOrWW-BCIsTmgV6-peU"
-DIRECT_URL="postgresql://pratice_owner:ThlVqrR89PNG@ep-divine-paper-a584xdc7.us-east-2.aws.neon.tech/pratice?sslmode=require"
-SECRET = "anshpatwal2703"
+DATABASE_URL=""
+DIRECT_URL=""
+SECRET = ""
 
 
